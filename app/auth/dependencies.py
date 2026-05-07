@@ -15,11 +15,13 @@ def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(securit
         email = payload.get("sub")
         name = payload.get("name")
         role = payload.get("role")
+        user_id = payload.get("user_id")
 
         if email is None:
             raise HTTPException(status_code=401, detail="Invalid token")
         
         return {
+            "id": user_id,
             "name": name, 
             "email": email, 
             "role": role
