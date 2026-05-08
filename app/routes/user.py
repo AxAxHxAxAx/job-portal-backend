@@ -64,7 +64,7 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
 def get_profile(current_user: str = Depends(get_current_user)):
     return {"message": f"welcome {current_user}"}
 
-@router.post("/createjob")
-def create_job(user: dict = Depends(require_role("recruiter"))):
-    return {"message": f"{user['name']} created a job"}
+#@router.post("/createjob")
+#def create_job(user: dict = Depends(require_role("recruiter"))):
+#    return {"message": f"{user['name']} created a job"}
 
